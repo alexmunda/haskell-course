@@ -27,7 +27,9 @@ sumDigits nums = sum $ concatMap toDigits nums
 
 --Exercise 4
 validate :: Integer -> Bool
-validate num = (\x -> x == 0) . (\x -> x `mod` 10) . sumDigits . doubleEveryOther $ toDigits num
+validate num = (== 0) . (`mod` 10) . sumDigits . doubleEveryOther $ toDigits num
+
+--Exercise 5
 
 type Peg = String
 
