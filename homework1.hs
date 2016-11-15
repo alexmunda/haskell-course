@@ -35,4 +35,8 @@ type Peg = String
 
 type Move = (Peg, Peg)
 
--- hanio:: Integer -> Peg -> Peg -> Peg -> [Move]
+hanoi:: Integer -> Peg -> Peg -> Peg -> [Move]
+hanoi disks peg1 peg2 peg3
+  | disks < 0 = []
+  | disks == 0 = [(peg3, peg2)]
+  | otherwise = (peg1, peg3) : hanoi (disks - 1) peg1 peg3 peg2
